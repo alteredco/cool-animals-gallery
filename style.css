@@ -98,10 +98,15 @@ main {
   font-family: "Nunito", sans-serif;
   font-size: 1.25rem;
   color: var(--steel-teal);
+  margin-bottom: 0px;
 }
 
 .gallery__item h5 {
   font-family: "Nunito", sans-serif;
+}
+
+.gallery__item h6 {
+  margin: 0px;
 }
 
 .gallery__item p {
