@@ -1,0 +1,125 @@
+:root {
+  --steel-teal: #55868c;
+  --light-french-beige: #c8ab83;
+  --pale-gold: #eec584;
+  --dark-vanilla: #cacaaa;
+  --deep-taupe: #7f636e;
+  --alabaster: #f0f0e7;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  height: 100%;
+  background-color: var(--alabaster);
+}
+
+header {
+  background-color: var(--steel-teal);
+}
+
+.header__title {
+  display: flex;
+  flex-shrink: 0;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  color: var(--alabaster);
+  font-family: "Nunito", sans-serif;
+  text-align: left;
+  padding: 1rem;
+}
+
+.header__menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.header__menu li {
+  background-color: var(--deep-taupe);
+  color: var(--alabaster);
+  border-radius: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+.header__menu li:hover {
+  background-color: var(--pale-gold);
+  color: var(--steel-teal);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  background-color: var(--alabaster);
+}
+
+#gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 2rem;
+}
+
+#gallery p {
+  font-size: 1.25rem;
+}
+
+.gallery__item {
+  background-color: #fff;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  -webkit-box-shadow: 5px 5px 6px 1px rgba(85, 134, 140, 0.58);
+  box-shadow: 5px 5px 6px 1px rgba(85, 134, 140, 0.58);
+  transition: transform 0.6s;
+}
+
+.gallery__item img {
+  border: 2px solid var(--dark-vanilla);
+  border-radius: 2rem;
+  padding: 0.5rem;
+  width: 70%;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.gallery__item h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.25rem;
+  color: var(--steel-teal);
+}
+
+.gallery__item h5 {
+  font-family: "Nunito", sans-serif;
+}
+
+.gallery__item p {
+  font-size: 1rem;
+  background-color: var(--deep-taupe);
+  color: var(--alabaster);
+  padding: 0 2rem;
+  border-radius: 1rem;
+}
+
+.gallery__item:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  display: grid;
+  grid-row-end: initial;
+  text-align: center;
+  color: var(--deep-taupe);
+  margin-top: 1rem;
+}
