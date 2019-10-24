@@ -38,6 +38,10 @@ header {
   list-style: none;
 }
 
+.header__title:hover {
+  color: var(--pale-gold);
+}
+
 .header__menu li {
   background-color: var(--deep-taupe);
   color: var(--alabaster);

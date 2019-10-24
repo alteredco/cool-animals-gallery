@@ -5,37 +5,37 @@ import {
   CoolBugs
 } from  './data/cool_animals.mjs';
 
+
 //reset gallery div content
 const galleryDiv = document.getElementById("gallery");
 galleryDiv.innerHTML = "";
 
-function createGalleryItem( dataType) {
+function createGalleryItem( dataSource) {
   //generate div with class gallery__item
-  const div = document.createElement('div');
-  div.className = "gallery__item";
+  const cardDiv = document.createElement('div');
+  cardDiv.className = "gallery__item";
   //generate img element
   const img = document.createElement('img');
-  img.src = dataType.imgUrl;
-  img.alt = dataType.name;
-  div.appendChild(img);
+  img.src = dataSource.imgUrl;
+  img.alt = dataSource.name;
+  cardDiv.appendChild(img);
   //generate name
-  const newTitle = document.createElement('h3');
-  newTitle.textContent = `${dataType.name}`
-  div.appendChild(newTitle);
-  const latinName = document.createElement('h6');
-  latinName.textContent = `(${dataType.latinName})`;
-  div.appendChild(latinName);
-  //generate details
-  const newsubTitle = document.createElement('h5');
-  newsubTitle.textContent = `Location: ${dataType.location}`;
-  div.appendChild(newsubTitle);
+  const newName =  document.createElement('h3');
+  newName.textContent = dataSource.name;
+  cardDiv.appendChild(newName);
+  const newLatinName = document.createElement('h6');
+  newLatinName.textContent = dataSource.latinName;
+  cardDiv.appendChild(newLatinName);
+  //generate location
+  const newLocation =  document.createElement('h5');
+  newLocation.textContent = `Location: ${dataSource.location}`;
+  cardDiv.appendChild(newLocation);
   //generate description
-  const newDescription = document.createElement('p');
-  newDescription.textContent = `Cool feature: ${dataType.feature}`;
-  div.appendChild(newDescription);
- 
-  //append data to div
-  galleryDiv.appendChild(div);
+  const newFeature =  document.createElement('p');
+  newFeature.textContent = `Cool Feature: ${dataSource.feature}`;
+  cardDiv.appendChild(newFeature);
+  //append data to gallery div
+ galleryDiv.appendChild(cardDiv);
 }
 
 createGalleryItem(CoolMammals[0]);
@@ -43,12 +43,69 @@ createGalleryItem(CoolReptiles[0]);
 createGalleryItem(CoolAmphibians[0]);
 createGalleryItem(CoolBugs[0]);
 
-// const mammalBtn = document.getElementById('mammalBtn');
-// const amphibianBtn = document.getElementById('amphibianBtn');
+//get button elements
+const mammalBtn = document.getElementById('mammalBtn');
+const amphibianBtn = document.getElementById('amphibianBtn');
+const reptileBtn = document.getElementById('reptileBtn');
+const bugBtn = document.getElementById('bugBtn');
+const homeBtn =  document.getElementById('homeBtn');
 
-// function removeContent() {
-//   const gallery = document.getElementById("gallery")
-//   while(gallery.firstChild) {
-//     gallery.removeChild(gallery.firstChild)
-//   }
-// }
+//remove content within gallery div
+function removeContent() {
+  const galleryDiv = document.getElementById("gallery")
+  while(galleryDiv.firstChild) {
+    galleryDiv.removeChild(galleryDiv.firstChild)
+  }
+}
+
+//------------add button functionality---------
+mammalBtn.onclick = (e) => {
+  removeContent();
+  //map function goes here
+  CoolMammals.map( mammal => {
+    createGalleryItem(mammal);
+  })
+}
+
+amphibianBtn.onclick = (e) => {
+  removeContent();
+  //map function goes here
+  CoolAmphibians.map( amph => {
+    createGalleryItem(amph);
+  })
+}
+
+reptileBtn.onclick = (e) => {
+  removeContent();
+  //map function goes here
+  CoolReptiles.map( reptile => {
+    createGalleryItem(reptile);
+  })
+}
+
+bugBtn.onclick = (e) => {
+  removeContent();
+  //map function goes here
+  CoolBugs.map( bug => {
+    createGalleryItem(bug);
+  })
+}
+
+//create random selection of animals
+function randomAnimal(dataSource) {
+  return dataSource[Math.floor(Math.random() * dataSource.length)];
+}
+
+//click on heading randomizes gallery
+homeBtn.onclick = (e) => {
+  removeContent();
+  createGalleryItem(randomAnimal(CoolMammals));
+  createGalleryItem(randomAnimal(CoolReptiles));
+  createGalleryItem(randomAnimal(CoolAmphibians));
+  createGalleryItem(randomAnimal(CoolBugs));
+}
+
+
+
+
+
